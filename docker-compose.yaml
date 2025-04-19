@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "27007:8080"
+    volumes:
+      - ./persisted-data:/app/backend/data
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
